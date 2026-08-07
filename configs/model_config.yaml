@@ -10,3 +10,6 @@ xgboost:
 
 forecast_horizon: 24
 quantiles: [0.1, 0.5, 0.9]
+
+chronos:
+  zero_shot: true
