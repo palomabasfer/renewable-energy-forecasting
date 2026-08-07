@@ -12,17 +12,20 @@ An enterprise, paper-grade probabilistic wind and solar energy generation foreca
 
 ```mermaid
 flowchart TD
-    A[Grid Telemetry & Weather Feed] --> B[Data Preprocessor & Feature Engineering]
+    A[Grid Telemetry & Weather Sensor Feed] --> B[Feature Pipeline & Lag Transformation]
     B --> C[Statistical Baseline ARIMA]
     B --> D[XGBoost Quantile Regressor]
     B --> E[Temporal Fusion Transformer TFT]
-    B --> F[Chronos/Bolt Foundation Model]
-    C --> G[Quantile Aggregator P10, P50, P90]
-    D --> G
-    E --> G
-    F --> G
-    G --> H[Evaluation Engine CRPS & WAPE]
-    H --> I[Dash Interactive Energy Grid Dashboard]
+    B --> F[Chronos/Bolt Zero-Shot Foundation]
+    E --> G[Variable Selection Network VSN]
+    E --> H[Gated Residual Networks GRN]
+    C --> I[Quantile Aggregator P10, P50, P90]
+    D --> I
+    G --> I
+    H --> I
+    F --> I
+    I --> J[Evaluation Engine CRPS & WAPE]
+    J --> K[Dash Interactive Energy Grid Dashboard]
 ```
 
 ---
