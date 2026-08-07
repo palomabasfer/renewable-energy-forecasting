@@ -1,0 +1,12 @@
+tft:
+  hidden_dim: 64
+  num_heads: 4
+  learning_rate: 0.001
+  batch_size: 32
+
+xgboost:
+  n_estimators: 100
+  max_depth: 6
+
+forecast_horizon: 24
+quantiles: [0.1, 0.5, 0.9]
