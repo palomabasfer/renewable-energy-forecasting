@@ -12,3 +12,6 @@ class ChronosZeroShotForecaster:
         p10 = p50 - 4.0
         p90 = p50 + 4.0
         return {'p10': p10, 'p50': p50, 'p90': p90}
+
+def chronos_zero_shot_inference(x):
+    return x
