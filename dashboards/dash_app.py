@@ -266,4 +266,5 @@ def update_dashboard(selected_model, selected_quantiles):
 
 
 if __name__ == "__main__":
-    app.run_server(port=8050, debug=False)
+    app.run(port=8050, debug=False)
+
