@@ -1,0 +1,17 @@
+# Core Data & Analytics
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+
+# Statistical & ML Models
+statsmodels>=0.14.0
+xgboost>=2.0.0
+lightgbm>=4.0.0
+
+# Dash & Data Visualization
+dash>=2.14.0
+plotly>=5.15.0
+
+# Config & Logging
+pyyaml>=6.0.1
