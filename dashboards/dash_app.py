@@ -1,5 +1,11 @@
 """Interactive Enterprise Renewable Energy Probabilistic Forecasting Dashboard."""
 
+import sys
+from pathlib import Path
+
+# Add project root to Python module search path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import dash
 from dash import dcc, html, Input, Output, dash_table
 import plotly.graph_objects as go

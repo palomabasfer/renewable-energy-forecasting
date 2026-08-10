@@ -21,10 +21,10 @@ test:
 	$(PYTEST) tests/
 
 run-pipeline:
-	$(PYTHON) scripts/run_pipeline.py
+	PYTHONPATH=. $(PYTHON) scripts/run_pipeline.py
 
 run-dashboard:
-	$(PYTHON) dashboards/dash_app.py
+	PYTHONPATH=. $(PYTHON) dashboards/dash_app.py
 
 docker-build:
 	docker build -t renewable-energy-forecasting:latest .
