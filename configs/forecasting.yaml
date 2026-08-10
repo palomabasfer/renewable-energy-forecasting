@@ -1,0 +1,17 @@
+forecast_horizon: 24
+target_variable: "total_renewable_mw"
+quantiles: [0.1, 0.5, 0.9]
+
+backtest:
+  train_window_hours: 336 # 14 days
+  test_window_hours: 24  # 1 day
+  step_hours: 24         # daily roll
+  min_train_hours: 168   # 7 days
+
+evaluation_metrics:
+  - "MAE"
+  - "RMSE"
+  - "WAPE"
+  - "sMAPE"
+  - "PinballLoss"
+  - "CRPS"

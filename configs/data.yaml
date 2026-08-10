@@ -1,0 +1,17 @@
+raw_data_path: "data/raw/grid_telemetry.csv"
+interim_data_path: "data/interim/validated_telemetry.csv"
+processed_data_path: "data/processed/featured_telemetry.csv"
+
+time_column: "timestamp"
+target_columns:
+  - "total_renewable_mw"
+  - "solar_power_mw"
+  - "wind_power_mw"
+
+feature_columns:
+  - "temperature_c"
+
+sampling_frequency: "1h"
+timezone: "UTC"
+allow_missing: false
+clip_negative_targets: true

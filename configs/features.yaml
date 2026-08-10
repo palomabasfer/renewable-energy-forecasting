@@ -1,0 +1,26 @@
+lags:
+  total_renewable_mw: [1, 2, 3, 6, 12, 24, 48, 168]
+  solar_power_mw: [1, 2, 24, 168]
+  wind_power_mw: [1, 2, 24, 168]
+
+rolling_windows:
+  - window: 6
+    metrics: ["mean", "std"]
+  - window: 24
+    metrics: ["mean", "std", "min", "max"]
+  - window: 168
+    metrics: ["mean", "std"]
+
+calendar_features:
+  - "hour"
+  - "dayofweek"
+  - "month"
+  - "is_weekend"
+
+cyclical_features:
+  - column: "hour"
+    period: 24
+  - column: "month"
+    period: 12
+
+drop_na_rows: true
