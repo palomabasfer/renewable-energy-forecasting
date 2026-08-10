@@ -1,0 +1,19 @@
+name: renewable-energy-forecasting
+
+services:
+  forecasting-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: renewable_forecasting_app
+    ports:
+      - "8050:8050"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PORT=8050
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8050/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
