@@ -1,6 +1,7 @@
 """Time series feature engineering module with strict temporal boundary enforcement."""
 
-from typing import Dict, List, Optional, Tuple, Any
+from typing import List, Optional
+
 import numpy as np
 import pandas as pd
 

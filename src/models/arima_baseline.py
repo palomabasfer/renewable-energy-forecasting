@@ -1,8 +1,8 @@
 """Statistical forecasting baselines (Naive, Seasonal Naive, Moving Average, ARIMA/SARIMAX)."""
 
 from typing import Dict, Optional, Tuple
+
 import numpy as np
-import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 

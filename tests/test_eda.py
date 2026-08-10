@@ -1,10 +1,10 @@
-from src.data.synthetic_grid_data import generate_renewable_timeseries
 from src.analysis.eda import (
-    compute_time_series_summary,
-    compute_diurnal_profile,
     compute_autocorrelations,
+    compute_diurnal_profile,
+    compute_time_series_summary,
     compute_weather_correlations,
 )
+from src.data.synthetic_grid_data import generate_renewable_timeseries
 
 
 def test_eda_summary():

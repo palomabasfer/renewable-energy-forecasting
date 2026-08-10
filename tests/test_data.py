@@ -1,7 +1,6 @@
-import pandas as pd
+from src.data.preprocessing import clean_telemetry_pipeline
 from src.data.synthetic_grid_data import generate_renewable_timeseries
 from src.data.validation import validate_time_series_data
-from src.data.preprocessing import clean_telemetry_pipeline
 
 
 def test_data_generation():

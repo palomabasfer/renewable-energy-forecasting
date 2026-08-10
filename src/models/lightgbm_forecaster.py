@@ -1,6 +1,7 @@
 """LightGBM probabilistic quantile forecaster module with robust fallback support."""
 
-from typing import Dict, List, Optional, Any
+from typing import Any, Dict, List, Optional
+
 import numpy as np
 import pandas as pd
 
@@ -9,7 +10,6 @@ try:
     from lightgbm import LGBMRegressor
     HAS_LIGHTGBM = True
 except Exception:
-    from sklearn.ensemble import GradientBoostingRegressor
     HAS_LIGHTGBM = False
 
 

@@ -1,5 +1,7 @@
-import numpy as np
 from typing import Dict
+
+import numpy as np
+
 
 class TemporalFusionTransformer:
     def __init__(self, hidden_dim: int = 64, num_heads: int = 4):

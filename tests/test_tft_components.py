@@ -1,7 +1,9 @@
 import numpy as np
+
 from src.models.grn_module import GatedResidualNetwork
-from src.models.vsn_module import VariableSelectionNetwork
 from src.models.patchtst_forecaster import PatchTSTForecaster
+from src.models.vsn_module import VariableSelectionNetwork
+
 
 def test_grn():
     grn = GatedResidualNetwork(10, 20)

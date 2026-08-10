@@ -1,6 +1,7 @@
 """Diagnostic error analysis module for forecast residual breakdown."""
 
-from typing import Dict, Any
+from typing import Dict
+
 import numpy as np
 import pandas as pd
 

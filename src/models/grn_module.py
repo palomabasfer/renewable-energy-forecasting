@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class GatedResidualNetwork:
     def __init__(self, input_dim: int, hidden_dim: int):
         self.input_dim = input_dim

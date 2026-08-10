@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class VariableSelectionNetwork:
     def __init__(self, num_inputs: int, hidden_dim: int):
         self.num_inputs = num_inputs

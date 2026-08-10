@@ -1,8 +1,8 @@
 """Centralized configuration loader and path manager for renewable-energy-forecasting."""
 
-import os
 from pathlib import Path
 from typing import Any, Dict
+
 import yaml
 
 # Base directories

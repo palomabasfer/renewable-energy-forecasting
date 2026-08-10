@@ -1,10 +1,11 @@
 """Temporal cross-validation and walk-forward backtesting framework."""
 
-from typing import Dict, Any, List, Optional, Type
+from typing import Any, Dict, List
+
 import numpy as np
 import pandas as pd
 
-from src.evaluation.metrics import calculate_wape, pinball_loss, crps_score
+from src.evaluation.metrics import calculate_wape, crps_score
 
 
 class WalkForwardBacktester:

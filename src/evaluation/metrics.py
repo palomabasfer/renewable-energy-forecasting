@@ -1,6 +1,7 @@
 """Evaluation metrics for time series point and probabilistic forecasts."""
 
-from typing import Dict, Union, Optional
+from typing import Dict, Optional
+
 import numpy as np
 
 

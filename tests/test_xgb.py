@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
-from src.models.xgboost_forecaster import XGBoostQuantileForecaster
+
 from src.models.lightgbm_forecaster import LightGBMQuantileForecaster
+from src.models.xgboost_forecaster import XGBoostQuantileForecaster
 
 
 def test_xgboost_fit_predict():

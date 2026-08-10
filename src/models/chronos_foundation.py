@@ -1,5 +1,7 @@
-import numpy as np
 from typing import Dict
+
+import numpy as np
+
 
 class ChronosZeroShotForecaster:
     def __init__(self, model_size: str = 'chronos-bolt-small'):

@@ -8,7 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.config import DATA_DIR
-from src.data import load_raw_telemetry, clean_telemetry_pipeline
+from src.data import clean_telemetry_pipeline, load_raw_telemetry
 from src.features import create_feature_pipeline
 
 

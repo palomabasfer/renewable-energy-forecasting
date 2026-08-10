@@ -1,10 +1,8 @@
-import numpy as np
-import pandas as pd
 from src.data.synthetic_grid_data import generate_renewable_timeseries
 from src.features.engineering import (
+    add_calendar_cyclical_features,
     add_lag_features,
     add_rolling_features,
-    add_calendar_cyclical_features,
     create_feature_pipeline,
 )
 
@@ -30,9 +28,7 @@ def test_lag_features():
 def test_rolling_features_no_leakage():
     """Verify rolling features at time t use ONLY historical observations up to t-1."""
     df = generate_renewable_timeseries(n_hours=100)
-    # Modify y[10] to a huge value
-    original_val = df.loc[10, "total_renewable_mw"]
-    
+
     df_modified = df.copy()
     df_modified.loc[10, "total_renewable_mw"] = 99999.0
 

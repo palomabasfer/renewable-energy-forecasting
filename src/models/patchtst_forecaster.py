@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class PatchTSTForecaster:
     def __init__(self, patch_len: int = 16, stride: int = 8):
         self.patch_len = patch_len

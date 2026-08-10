@@ -1,9 +1,10 @@
 import numpy as np
+
 from src.models.arima_baseline import (
+    ARIMAForecaster,
+    MovingAverageForecaster,
     NaiveForecaster,
     SeasonalNaiveForecaster,
-    MovingAverageForecaster,
-    ARIMAForecaster,
 )
 
 

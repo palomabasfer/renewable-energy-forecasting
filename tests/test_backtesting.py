@@ -1,9 +1,9 @@
 import numpy as np
-import pandas as pd
+
 from src.data.synthetic_grid_data import generate_renewable_timeseries
+from src.evaluation.backtesting import WalkForwardBacktester
 from src.features.engineering import create_feature_pipeline
 from src.models.xgboost_forecaster import XGBoostQuantileForecaster
-from src.evaluation.backtesting import WalkForwardBacktester
 
 
 def test_walk_forward_backtest():

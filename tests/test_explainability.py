@@ -1,11 +1,12 @@
 import numpy as np
 import pandas as pd
-from src.models.xgboost_forecaster import XGBoostQuantileForecaster
-from src.interpretation.explainability import (
-    get_model_feature_importance,
-    compute_permutation_importance,
-)
+
 from src.evaluation.metrics import calculate_mae
+from src.interpretation.explainability import (
+    compute_permutation_importance,
+    get_model_feature_importance,
+)
+from src.models.xgboost_forecaster import XGBoostQuantileForecaster
 
 
 def test_permutation_importance():

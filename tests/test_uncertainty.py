@@ -1,5 +1,6 @@
 import numpy as np
-from src.evaluation.uncertainty import evaluate_interval_coverage, ResidualConformalCalibrator
+
+from src.evaluation.uncertainty import ResidualConformalCalibrator, evaluate_interval_coverage
 
 
 def test_evaluate_interval_coverage():

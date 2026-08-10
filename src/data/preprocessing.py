@@ -1,6 +1,7 @@
 """Data preprocessing and temporal cleaning pipeline."""
 
 from typing import List, Optional
+
 import pandas as pd
 
 
