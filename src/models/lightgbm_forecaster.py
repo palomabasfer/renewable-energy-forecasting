@@ -1,20 +1,20 @@
-"""XGBoost probabilistic quantile forecaster module with robust fallback support."""
+"""LightGBM probabilistic quantile forecaster module with robust fallback support."""
 
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 import numpy as np
 import pandas as pd
 
-HAS_XGBOOST = False
+HAS_LIGHTGBM = False
 try:
-    from xgboost import XGBRegressor
-    HAS_XGBOOST = True
+    from lightgbm import LGBMRegressor
+    HAS_LIGHTGBM = True
 except Exception:
     from sklearn.ensemble import GradientBoostingRegressor
-    HAS_XGBOOST = False
+    HAS_LIGHTGBM = False
 
 
-class XGBoostQuantileForecaster:
-    """Multi-quantile probabilistic forecaster powered by XGBoost (with Scikit-Learn GradientBoosting fallback).
+class LightGBMQuantileForecaster:
+    """Multi-quantile probabilistic forecaster powered by LightGBM (with Scikit-Learn GradientBoosting fallback).
 
     Fits three independent regressors for target quantiles (P10, P50, P90).
     """
@@ -43,8 +43,8 @@ class XGBoostQuantileForecaster:
         X: pd.DataFrame,
         y: pd.Series,
         feature_names: Optional[List[str]] = None,
-    ) -> "XGBoostQuantileForecaster":
-        """Train quantile regressors on feature matrix X and target y."""
+    ) -> "LightGBMQuantileForecaster":
+        """Train LightGBM quantile regressors on feature matrix X and target y."""
         if isinstance(X, pd.DataFrame):
             self.feature_names = list(X.columns)
             X_arr = X.values
@@ -56,17 +56,32 @@ class XGBoostQuantileForecaster:
 
         for q in self.quantiles:
             q_key = f"p{int(q * 100)}"
-            if HAS_XGBOOST:
-                model = XGBRegressor(
-                    objective="reg:quantileerror",
-                    quantile_alpha=q,
-                    n_estimators=self.n_estimators,
-                    max_depth=self.max_depth,
-                    learning_rate=self.learning_rate,
-                    random_state=self.random_state,
-                    n_jobs=-1,
-                )
+            if HAS_LIGHTGBM:
+                try:
+                    model = LGBMRegressor(
+                        objective="quantile",
+                        alpha=q,
+                        n_estimators=self.n_estimators,
+                        max_depth=self.max_depth,
+                        learning_rate=self.learning_rate,
+                        random_state=self.random_state,
+                        verbosity=-1,
+                        n_jobs=-1,
+                    )
+                    model.fit(X_arr, y_arr)
+                except Exception:
+                    from sklearn.ensemble import GradientBoostingRegressor
+                    model = GradientBoostingRegressor(
+                        loss="quantile",
+                        alpha=q,
+                        n_estimators=self.n_estimators,
+                        max_depth=self.max_depth,
+                        learning_rate=self.learning_rate,
+                        random_state=self.random_state,
+                    )
+                    model.fit(X_arr, y_arr)
             else:
+                from sklearn.ensemble import GradientBoostingRegressor
                 model = GradientBoostingRegressor(
                     loss="quantile",
                     alpha=q,
@@ -75,7 +90,7 @@ class XGBoostQuantileForecaster:
                     learning_rate=self.learning_rate,
                     random_state=self.random_state,
                 )
-            model.fit(X_arr, y_arr)
+                model.fit(X_arr, y_arr)
             self.models[q_key] = model
 
         return self
