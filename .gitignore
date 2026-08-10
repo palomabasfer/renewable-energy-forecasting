@@ -1,4 +1,23 @@
 
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+env/
+venv/
+ENV/
+.env
+.env.*
+token.rtf
+.ipynb_checkpoints/
+.DS_Store
+*.egg-info/
+dist/
+build/
+
